@@ -1,3 +1,26 @@
+## eiquadprog (melodic) - 1.2.2-2
+
+The packages in the `eiquadprog` repository were released into the `melodic` distro by running `/usr/bin/bloom-release --rosdistro melodic --track melodic eiquadprog` on `Fri, 13 Nov 2020 10:48:10 -0000`
+
+The `eiquadprog` package was released.
+
+Version of package(s) in repository `eiquadprog`:
+
+- upstream repository: https://github.com/stack-of-tasks/eiquadprog.git
+- release repository: https://github.com/stack-of-tasks/eiquadprog-ros-release.git
+- rosdistro version: `1.2.2-1`
+- old version: `1.2.2-1`
+- new version: `1.2.2-2`
+
+Versions of tools used:
+
+- bloom version: `0.10.0`
+- catkin_pkg version: `0.4.23`
+- rosdep version: `0.19.0`
+- rosdistro version: `0.8.3`
+- vcstools version: `0.1.42`
+
+
 ## eiquadprog (eloquent) - 1.2.2-1
 
 The packages in the `eiquadprog` repository were released into the `eloquent` distro by running `/usr/bin/bloom-release --rosdistro eloquent --track eloquent eiquadprog` on `Mon, 21 Sep 2020 12:57:51 -0000`
