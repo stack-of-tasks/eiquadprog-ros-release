@@ -16,11 +16,9 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with eiquadprog.  If not, see <https://www.gnu.org/licenses/>.
 
-#include <iostream>
-
 #include <Eigen/Core>
-
 #include <boost/test/unit_test.hpp>
+#include <iostream>
 
 #include "eiquadprog/eiquadprog-fast.hpp"
 #include "eiquadprog/eiquadprog-rt.hpp"
@@ -67,7 +65,8 @@ BOOST_AUTO_TEST_CASE(test_unbiased) {
 
   EiquadprogFast_status expected = EIQUADPROG_FAST_OPTIMAL;
 
-  EiquadprogFast_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  EiquadprogFast_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -108,7 +107,8 @@ BOOST_AUTO_TEST_CASE(test_biased) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -153,7 +153,8 @@ BOOST_AUTO_TEST_CASE(test_equality_constraints) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
