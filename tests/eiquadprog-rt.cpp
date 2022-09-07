@@ -16,13 +16,11 @@
 // You should have received a copy of the GNU Lesser General Public License
 // along with eiquadprog.  If not, see <https://www.gnu.org/licenses/>.
 
-#include <iostream>
+#include "eiquadprog/eiquadprog-rt.hpp"
 
 #include <Eigen/Core>
-
 #include <boost/test/unit_test.hpp>
-
-#include "eiquadprog/eiquadprog-rt.hpp"
+#include <iostream>
 
 using namespace eiquadprog::solvers;
 
@@ -65,7 +63,8 @@ BOOST_AUTO_TEST_CASE(test_unbiased) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -106,7 +105,8 @@ BOOST_AUTO_TEST_CASE(test_biased) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -151,7 +151,8 @@ BOOST_AUTO_TEST_CASE(test_equality_constraints) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -198,7 +199,8 @@ BOOST_AUTO_TEST_CASE(test_inequality_constraints) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -248,7 +250,8 @@ BOOST_AUTO_TEST_CASE(test_full) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
@@ -290,7 +293,8 @@ BOOST_AUTO_TEST_CASE(test_unfeasible_equalities) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_REDUNDANT_EQUALITIES;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 }
@@ -330,7 +334,8 @@ BOOST_AUTO_TEST_CASE(test_unfeasible_inequalities) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_INFEASIBLE;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_WARN_EQUAL(status, expected);
   BOOST_CHECK(status != RT_EIQUADPROG_OPTIMAL);
@@ -375,7 +380,8 @@ BOOST_AUTO_TEST_CASE(test_unfeasible_constraints) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_INFEASIBLE;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_WARN_EQUAL(status, expected);
   BOOST_CHECK(status != RT_EIQUADPROG_OPTIMAL);
@@ -407,7 +413,8 @@ BOOST_AUTO_TEST_CASE(test_unbounded) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_UNBOUNDED;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_WARN_EQUAL(status, expected);
   BOOST_WARN(status != RT_EIQUADPROG_OPTIMAL);  // SHOULD pass!
@@ -457,7 +464,8 @@ BOOST_AUTO_TEST_CASE(test_nonconvex) {
 
   RtEiquadprog_status expected = RT_EIQUADPROG_OPTIMAL;
 
-  RtEiquadprog_status status = qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
+  RtEiquadprog_status status =
+      qp.solve_quadprog(Q, C, Aeq, Beq, Aineq, Bineq, x);
 
   BOOST_CHECK_EQUAL(status, expected);
 
