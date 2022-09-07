@@ -1,8 +1,7 @@
-#include <iostream>
+#include "TestB.hpp"
 
 #include <Eigen/Core>
-
-#include "TestB.hpp"
+#include <iostream>
 
 using namespace eiquadprog::solvers;
 namespace eiquadprog {
@@ -20,7 +19,8 @@ bool B::do_something() {
   bool rstatus = true;
 
   if (status != expected) {
-    std::cerr << "Status not to true for A_" << expected << " " << status << std::endl;
+    std::cerr << "Status not to true for A_" << expected << " " << status
+              << std::endl;
     rstatus = false;
   }
 
