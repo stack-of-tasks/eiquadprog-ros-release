@@ -17,7 +17,7 @@
 # with eiquadprog.  If not, see <https://www.gnu.org/licenses/>.
 #
 
-cmake_minimum_required(VERSION 3.1)
+cmake_minimum_required(VERSION 3.10)
 
 # Project properties
 set(PROJECT_ORG stack-of-tasks)
@@ -27,6 +27,7 @@ set(PROJECT_URL "https://github.com/${PROJECT_ORG}/${PROJECT_NAME}")
 
 # Project options
 option(TRACE_SOLVER "trace solver on stderr" OFF)
+option(BUILD_SHARED_LIBS "Build shared libraries" ON)
 
 # Project configuration
 set(PROJECT_USE_CMAKE_EXPORT TRUE)
@@ -34,9 +35,28 @@ set(CXX_DISABLE_WERROR TRUE)
 set(CMAKE_VERBOSE_MAKEFILE TRUE)
 set(PROJECT_CUSTOM_HEADER_EXTENSION "hpp")
 
+# Check if the submodule cmake have been initialized
+set(JRL_CMAKE_MODULES "${CMAKE_CURRENT_LIST_DIR}/cmake")
+if(NOT EXISTS "${CMAKE_SOURCE_DIR}/cmake/base.cmake")
+  if(${CMAKE_VERSION} VERSION_LESS "3.14.0")
+    message(
+      FATAL_ERROR
+        "\nPlease run the following command first:\ngit submodule update --init\n"
+    )
+  else()
+    message(STATUS "JRL cmakemodules not found. Let's fetch it.")
+    include(FetchContent)
+    FetchContent_Declare(
+      "jrl-cmakemodules"
+      GIT_REPOSITORY "https://github.com/jrl-umi3218/jrl-cmakemodules.git")
+    FetchContent_MakeAvailable("jrl-cmakemodules")
+    FetchContent_GetProperties("jrl-cmakemodules" SOURCE_DIR JRL_CMAKE_MODULES)
+  endif()
+endif()
+
 # JRL-cmakemodule setup
-include(cmake/base.cmake)
-include(cmake/boost.cmake)
+include("${JRL_CMAKE_MODULES}/base.cmake")
+include("${JRL_CMAKE_MODULES}/boost.cmake")
 
 # Project definition
 compute_project_args(PROJECT_ARGS LANGUAGES CXX)
@@ -56,7 +76,9 @@ set(${PROJECT_NAME}_HEADERS
     include/${PROJECT_NAME}/eiquadprog-rt.hxx
     include/${PROJECT_NAME}/eiquadprog-utils.hxx)
 
-add_library(${PROJECT_NAME} SHARED src/eiquadprog-fast.cpp src/eiquadprog.cpp)
+add_library(${PROJECT_NAME} src/eiquadprog-fast.cpp src/eiquadprog.cpp)
+target_compile_options(${PROJECT_NAME} PRIVATE "-Wno-sign-conversion"
+)# We have a lot of implicit size_t to Eigen::Index conversions
 
 if(TRACE_SOLVER)
   target_compile_definitions(${PROJECT_NAME} PRIVATE EIQGUADPROG_TRACE_SOLVER)
