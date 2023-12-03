@@ -1,3 +1,26 @@
+## eiquadprog (noetic) - 1.2.8-1
+
+The packages in the `eiquadprog` repository were released into the `noetic` distro by running `/tmp/venv/bin/bloom-release --rosdistro noetic eiquadprog` on `Sun, 03 Dec 2023 15:31:31 -0000`
+
+The `eiquadprog` package was released.
+
+Version of package(s) in repository `eiquadprog`:
+
+- upstream repository: git@github.com:stack-of-tasks/eiquadprog.git
+- release repository: https://github.com/stack-of-tasks/eiquadprog-ros-release.git
+- rosdistro version: `1.2.5-1`
+- old version: `1.2.5-1`
+- new version: `1.2.8-1`
+
+Versions of tools used:
+
+- bloom version: `0.11.2`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.22.2`
+- rosdistro version: `0.9.0`
+- vcstools version: `0.1.42`
+
+
 ## eiquadprog (melodic) - 1.2.5-1
 
 The packages in the `eiquadprog` repository were released into the `melodic` distro by running `/usr/bin/bloom-release eiquadprog --rosdistro melodic` on `Mon, 24 Oct 2022 13:56:55 -0000`
