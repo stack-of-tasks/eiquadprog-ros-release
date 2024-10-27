@@ -1,0 +1,12 @@
+Source: ros-humble-eiquadprog
+Section: misc
+Priority: optional
+Maintainer: Guilhem Saurel <guilhem.saurel@laas.fr>
+Build-Depends: debhelper (>= 9.0.0), cmake, doxygen, git, graphviz, libboost-all-dev, libeigen3-dev, ros-humble-ros-workspace
+Homepage: git@github.com:stack-of-tasks/eiquadprog.git
+Standards-Version: 3.9.2
+
+Package: ros-humble-eiquadprog
+Architecture: any
+Depends: ${shlibs:Depends}, ${misc:Depends}, graphviz, libboost-all-dev, libeigen3-dev, ros-humble-ament-cmake, ros-humble-ros-workspace
+Description: Eiquadprog a QP solver using active sets
