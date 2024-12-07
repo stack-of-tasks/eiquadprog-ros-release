@@ -1,3 +1,26 @@
+## eiquadprog (rolling) - 1.2.9-1
+
+The packages in the `eiquadprog` repository were released into the `rolling` distro by running `/nix/store/ai12rs6v9d4pfsj8m2k668zbnr7z8l57-python3.12-bloom-0.12.0/bin/bloom-release --new-track --rosdistro rolling --track rolling eiquadprog` on `Sat, 07 Dec 2024 10:55:42 -0000`
+
+The `eiquadprog` package was released.
+
+Version of package(s) in repository `eiquadprog`:
+
+- upstream repository: git@github.com:stack-of-tasks/eiquadprog.git
+- release repository: unknown
+- rosdistro version: `null`
+- old version: `null`
+- new version: `1.2.9-1`
+
+Versions of tools used:
+
+- bloom version: `0.12.0`
+- catkin_pkg version: `1.0.0`
+- rosdep version: `0.25.1`
+- rosdistro version: `0.9.1`
+- vcstools version: `0.1.42`
+
+
 ## eiquadprog (jazzy) - 1.2.9-1
 
 The packages in the `eiquadprog` repository were released into the `jazzy` distro by running `/nix/store/ai12rs6v9d4pfsj8m2k668zbnr7z8l57-python3.12-bloom-0.12.0/bin/bloom-release --new-track --rosdistro jazzy --track jazzy eiquadprog` on `Sat, 07 Dec 2024 10:47:32 -0000`
